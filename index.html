@@ -16,6 +16,7 @@
 
     <!-- Custom styles for this template -->
     <link href="./css/navbar-fixed-top.css" rel="stylesheet">
+    <link href="./css/main.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]>
@@ -77,6 +78,7 @@
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">
             <li role="presentation" class="active"><a href="#json-format-container" aria-controls="json-format-container" role="tab" data-toggle="tab">JSON格式化</a></li>
+            <li role="presentation"><a href="#json-color-container" aria-controls="json-color-container" role="tab" data-toggle="tab">JSON美化</a></li>
 
         </ul>
 
@@ -85,20 +87,74 @@
             <div role="tabpanel" class="tab-pane active" id="json-format-container">
                 <div class="row" style="margin-top: 10px; ">
                     <div class="col-md-5">
-                        <textarea class="form-control" placeholder="在此输入json字符串或XML字符串..." style="height:550px;padding:15px;resize: none; outline:none;"></textarea>
+                        <textarea class="form-control" id="raw-json" placeholder="在此输入json字符串..." style="height:550px;padding:15px;resize: none; outline:none;"></textarea>
                     </div>
-                    <div class="col-md-1" style="">
+                    <div class="col-md-1" style="padding-left: 0px;">
                         <div class="" style="height:550px; text-align: center; display: table-cell; vertical-align: middle; line-height: 40px;">
-                            <button type="button" id="json-format-common" class="btn btn-primary">格式化</button>
+                            <button type="button" id="json-format-common" class="btn btn-primary">简单格式化</button>
+                            <button type="button" id="json-format-tree" class="btn btn-primary">高级格式化</button>
                         </div>
                     </div>
                     <div class="col-md-6" style="">
-                        <div class="form-control" style="height:550px;">
+                        <div id="processed-json" class="form-control" style="height:550px; overflow-x: auto; overflow-y: auto;">
 
                         </div>
                     </div>
                 </div>
+            </div>
 
+            <div role="tabpanel" class="tab-pane" id="json-color-container">
+                <div class="row" style="margin-top: 10px; ">
+                    <form id="codeformat_form" style="width: 100%" action="" method="POST">
+                        <link href="./css/s.css" type="text/css" rel="stylesheet">
+                        <script type="text/javascript" src="./js/lib/c.js"></script>
+                        <script type="text/javascript">
+                            function format_(){
+                                var json = $("#jsondata").val();
+                                $("#fjson").html(fmt);
+                            }
+                        </script>
+                        <div class="topBar">
+                            <div class="title">待格式化JSON：</div>
+                            <div class="resizable-textarea"><span><textarea name="json" id="RawJson" style="resize:none;" class="resizable processed"></textarea><div class="grippie"></div></span></div>
+                        </div>
+                        <div class="operateTB form-inline">
+                            <label for="TabSize">缩进量：</label>
+                            <select id="TabSize" onchange="TabSizeChanged()" class="span1">
+                                <option value="1">1</option>
+                                <option value="2" selected="true">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                            </select>
+                            <label for="QuoteKeys" class="checkbox">
+                                <input type="checkbox" id="QuoteKeys" onclick="QuoteKeysClicked()" checked="true">引号
+                            </label>
+                            <span id="CollapsibleViewHolder">
+                              <label for="CollapsibleView" class="checkbox">
+                                  <input type="checkbox" id="CollapsibleView" onclick="CollapsibleViewClicked()" checked="true">显示控制
+                              </label>
+                            </span>
+                              <span id="CollapsibleViewDetail" style="visibility: visible;margin-right:10px; ">
+                                <a href="javascript:void(0);" onclick="ExpandAllClicked()">展开</a>
+                                <a href="javascript:void(0);" onclick="CollapseAllClicked()">叠起</a>
+                                <a href="javascript:void(0);" onclick="CollapseLevel(3)">2级</a>
+                                <a href="javascript:void(0);" onclick="CollapseLevel(4)">3级</a>
+                                <a href="javascript:void(0);" onclick="CollapseLevel(5)">4级</a>
+                                <a href="javascript:void(0);" onclick="CollapseLevel(6)">5级</a>
+                                <a href="javascript:void(0);" onclick="CollapseLevel(7)">6级</a>
+                                <a href="javascript:void(0);" onclick="CollapseLevel(8)">7级</a>
+                                <a href="javascript:void(0);" onclick="CollapseLevel(9)">8级</a>
+                              </span>
+                            <input class="btn btn-small btn-primary" data-loading-text="正在格式化json..." id="format" type="button" onclick="Process()" value="格式化">
+                        </div>
+                        <div class="bottomBar">
+                            <div class="title">格式化JSON：</div>
+                            <div class="resizable-textarea"><span><div id="Canvas" class="Canvas well resizable processed" style="height:200px;overflow:auto;margin-bottom:0px;"></div><div class="grippie" style="margin-right: 0px;"></div></span></div>
+                        </div>
+                    </form>
+                </div>
             </div>
 
         </div>
@@ -115,6 +171,7 @@
     <!--<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>-->
 
     <script src="./js/lib/vkbeautify.js"></script>
+    <script src="./js/lib/jquery.textarearesizer.compressed.js"></script>
     <script src="./js/main.js"></script>
 
     <!--<script type="text/javascript" color="47,135,193" opacity="0.5" zindex="-2" count="250" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>-->
