@@ -17,11 +17,11 @@ $(function(){
             error = e.message;
         }
         if(formatJson != null){
-            var pre = $('<pre style="width: 100%; height: 90%;">'+formatJson+'</pre>');
+            var pre = $('<pre style="">'+formatJson+'</pre>');
             $('#processed-json').append(pre);
         }
         if(error != null){
-            var pre = $('<pre style="color: red; font-weight: bold; width: 100%; height: 90%;">'+error+'</pre>');
+            var pre = $('<pre style="color: red; font-weight: bold;">'+error+'</pre>');
             $('#processed-json').append(pre);
         }
     });
