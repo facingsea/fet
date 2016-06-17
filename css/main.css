@@ -24,7 +24,7 @@ div.grippie {
     margin-bottom:0pt;
 }
 
-.topBar .title{margin-bottom:10px;}
+.topBar .title, .bottomBar .title{margin-bottom:10px;}
 
 .clearfix:after {
     clear: both;
