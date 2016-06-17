@@ -54,6 +54,31 @@ $(function(){
         }
     });
 
+    //tree格式化
+    $('#json-format-tree').click(function(){
+        $('#processed-json').empty();
+        var json = $('#raw-json').val();
+        if(json == ''){
+            return;
+        }
+        var formatJson = null;
+        var error = null;
+        try{
+            formatJson = vkbeautify.json(json, 4);
+        }catch (e){
+            error = e.message;
+        }
+        if(formatJson != null){
+            var result = new JSONFormat(formatJson,4).toString();
+            $('#processed-json').css('font-family', 'Consolas,"Courier New",monospace');
+            $('#processed-json').html(result);
+        }
+        if(error != null){
+            var pre = $('<pre style="color: red; font-weight: bold;">'+error+'</pre>');
+            $('#processed-json').append(pre);
+        }
+    });
+
     //处理textarea和div的调整大小
     $('textarea.resizable:not(.processed)').TextAreaResizer();
     $('div.resizable:not(.processed)').TextAreaResizer();
