@@ -50,15 +50,10 @@
                     <!--<li><a href="#about">About</a></li>-->
                     <!--<li><a href="#contact">Contact</a></li>-->
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">JSON相关<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li class="dropdown-header">Nav header</li>
-                            <li><a href="#">Separated link</a></li>
-                            <li><a href="#">One more separated link</a></li>
+                            <li><a href="#" tab-id="json-format-container">JSON格式化</a></li>
+                            <li><a href="#" tab-id="json-color-container">JSON美化</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -97,7 +92,6 @@
                     </div>
                     <div class="col-md-6" style="">
                         <div id="processed-json" class="form-control" style="height:550px; overflow-x: auto; overflow-y: auto; background-color: #ECECEC;">
-
                         </div>
                     </div>
                 </div>
@@ -105,53 +99,53 @@
 
             <div role="tabpanel" class="tab-pane" id="json-color-container">
                 <div class="" style="margin-top: 10px; ">
-                        <link href="./css/s.css" type="text/css" rel="stylesheet">
-                        <script type="text/javascript" src="./js/lib/c.js"></script>
-                        <script type="text/javascript">
-                            function format_(){
-                                var json = $("#jsondata").val();
-                                $("#fjson").html(fmt);
-                            }
-                        </script>
-                        <div class="topBar">
-                            <div class="title">待格式化JSON：</div>
-                            <div class="resizable-textarea"><span><textarea name="json" id="RawJson" style="resize:none;" class="form-control resizable"></textarea></span></div>
-                        </div>
-                        <div class="operateTB form-inline">
-                            <label for="TabSize">缩进量：</label>
-                            <select id="TabSize" onchange="TabSizeChanged()" class="span1">
-                                <option value="1">1</option>
-                                <option value="2" selected="true">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                            </select>
-                            <label for="QuoteKeys" class="checkbox">
-                                <input type="checkbox" id="QuoteKeys" onclick="QuoteKeysClicked()" checked="true">引号
-                            </label>
-                            <span id="CollapsibleViewHolder">
-                              <label for="CollapsibleView" class="checkbox">
-                                  <input type="checkbox" id="CollapsibleView" onclick="CollapsibleViewClicked()" checked="true">显示控制
-                              </label>
-                            </span>
-                              <span id="CollapsibleViewDetail" style="visibility: visible;margin-right:10px; ">
-                                <a href="javascript:void(0);" onclick="ExpandAllClicked()">展开</a>
-                                <a href="javascript:void(0);" onclick="CollapseAllClicked()">叠起</a>
-                                <a href="javascript:void(0);" onclick="CollapseLevel(3)">2级</a>
-                                <a href="javascript:void(0);" onclick="CollapseLevel(4)">3级</a>
-                                <a href="javascript:void(0);" onclick="CollapseLevel(5)">4级</a>
-                                <a href="javascript:void(0);" onclick="CollapseLevel(6)">5级</a>
-                                <a href="javascript:void(0);" onclick="CollapseLevel(7)">6级</a>
-                                <a href="javascript:void(0);" onclick="CollapseLevel(8)">7级</a>
-                                <a href="javascript:void(0);" onclick="CollapseLevel(9)">8级</a>
-                              </span>
-                            <input class="btn btn-small btn-primary" data-loading-text="正在格式化json..." id="format" type="button" onclick="Process()" value="格式化">
-                        </div>
-                        <div class="bottomBar">
-                            <div class="title">格式化JSON：</div>
-                            <div class="resizable-textarea"><span><div id="Canvas" class="Canvas well resizable" style="height:200px;overflow:auto;margin-bottom:0px;"></div></span></div>
-                        </div>
+                    <link href="./css/s.css" type="text/css" rel="stylesheet">
+                    <script type="text/javascript" src="./js/lib/c.js"></script>
+                    <script type="text/javascript">
+                        function format_(){
+                            var json = $("#jsondata").val();
+                            $("#fjson").html(fmt);
+                        }
+                    </script>
+                    <div class="topBar">
+                        <div class="title">待格式化JSON：</div>
+                        <div class="resizable-textarea"><span><textarea name="json" id="RawJson" style="resize:none;" class="form-control resizable"></textarea></span></div>
+                    </div>
+                    <div class="operateTB form-inline">
+                        <label for="TabSize">缩进量：</label>
+                        <select id="TabSize" onchange="TabSizeChanged()" class="span1">
+                            <option value="1">1</option>
+                            <option value="2" selected="true">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                        </select>
+                        <label for="QuoteKeys" class="checkbox">
+                            <input type="checkbox" id="QuoteKeys" onclick="QuoteKeysClicked()" checked="true">引号
+                        </label>
+                        <span id="CollapsibleViewHolder">
+                          <label for="CollapsibleView" class="checkbox">
+                              <input type="checkbox" id="CollapsibleView" onclick="CollapsibleViewClicked()" checked="true">显示控制
+                          </label>
+                        </span>
+                          <span id="CollapsibleViewDetail" style="visibility: visible;margin-right:10px; ">
+                            <a href="javascript:void(0);" onclick="ExpandAllClicked()">展开</a>
+                            <a href="javascript:void(0);" onclick="CollapseAllClicked()">叠起</a>
+                            <a href="javascript:void(0);" onclick="CollapseLevel(3)">2级</a>
+                            <a href="javascript:void(0);" onclick="CollapseLevel(4)">3级</a>
+                            <a href="javascript:void(0);" onclick="CollapseLevel(5)">4级</a>
+                            <a href="javascript:void(0);" onclick="CollapseLevel(6)">5级</a>
+                            <a href="javascript:void(0);" onclick="CollapseLevel(7)">6级</a>
+                            <a href="javascript:void(0);" onclick="CollapseLevel(8)">7级</a>
+                            <a href="javascript:void(0);" onclick="CollapseLevel(9)">8级</a>
+                          </span>
+                        <input class="btn btn-small btn-primary" data-loading-text="正在格式化json..." id="format" type="button" onclick="Process()" value="格式化">
+                    </div>
+                    <div class="bottomBar">
+                        <div class="title">格式化JSON：</div>
+                        <div class="resizable-textarea"><span><div id="Canvas" class="Canvas well resizable" style="height:200px;overflow:auto;margin-bottom:0px;"></div></span></div>
+                    </div>
                 </div>
             </div>
 
