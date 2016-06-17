@@ -45,7 +45,6 @@ $(function(){
             var pre = $('<pre style=""><code class="json" id="code-content">'+formatJson+'</code></pre>');
             $('#processed-json').append(pre);
             $("#code-content").each(function(i, e){
-                console.log(e);
                 hljs.highlightBlock(e);
             });
         }
@@ -65,7 +64,6 @@ $(function(){
         var tarId = $(ele).attr('tab-id');
         $('.nav-tabs a[href="#'+tarId+'"]').click();
     });
-
 
 });
 
