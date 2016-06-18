@@ -2,9 +2,9 @@ body {
   /*min-height: 2000px;*/
   padding-top: 70px;
 }
-.navbar .nav > li:hover .dropdown-menu {
-  display: block;
-}
-.navbar .nav > li .dropdown-menu {
-  display: none;
-}
+/*.navbar .nav > li:hover .dropdown-menu {*/
+  /*display: block;*/
+/*}*/
+/*.navbar .nav > li .dropdown-menu {*/
+  /*display: none;*/
+/*}*/
