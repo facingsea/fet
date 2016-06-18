@@ -3,9 +3,11 @@
  */
 
 $(function(){
-    $('a').each(function(index, ele){
+    $('.dropdown-menu a').each(function(index, ele){
         var href = $(ele).attr('href');
+        console.log('old: ' + href);
         var newHref = getRootPath() + href;
+        console.log('new: ' + newHref);
         $(ele).attr('href', newHref);
     });
 });
