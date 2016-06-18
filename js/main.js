@@ -18,7 +18,7 @@ $(function(){
             error = e.message;
         }
         if(formatJson != null){
-            var pre = $('<pre style="">'+formatJson+'</pre>');
+            var pre = $('<pre style="white-space: pre-wrap;">'+formatJson+'</pre>');
             $('#processed-json').append(pre);
         }
         if(error != null){
