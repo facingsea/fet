@@ -5,7 +5,7 @@
 $(function(){
     $('.dropdown-menu a').each(function(index, ele){
         var href = $(ele).attr('href');
-        var newHref = getRootPath() + href;
+        var newHref = getDomainPath() + href;
         $(ele).attr('href', newHref);
     });
 });
