@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>颜色</title>
+    <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="../css/navbar-fixed-top.css" rel="stylesheet">
+    <link href="../css/main.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]>
+    <script src="../js/lib/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../js/lib/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://fet.facingsea.com">Front-End Tools</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <!--<li ><a href="#">Home</a></li>-->
+                <!--<li><a href="#about">About</a></li>-->
+                <!--<li><a href="#contact">Contact</a></li>-->
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">JSON相关<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/index.html" tab-id="json-format-container">JSON格式化</a></li>
+                        <li><a href="/index.html" tab-id="json-color-container">JSON美化</a></li>
+                        <li><a href="/onlinejsonviewer/index.html" target="_blank">JSON视图</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">XML相关<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/xml/index.html" tab-id="xml-format-container">XML格式化</a></li>
+                    </ul>
+                </li>
+                <li><a href="/color/index.html">颜色</a></li>
+            </ul>
+            <!--
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="../navbar/">Default</a></li>
+                <li><a href="../navbar-static-top/">Static top</a></li>
+                <li class="active"><a href="./">Fixed top <span class="sr-only">(current)</span></a></li>
+            </ul>
+            -->
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+<div class="container">
+
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#json-format-container" aria-controls="json-format-container" role="tab" data-toggle="tab">颜色转换</a></li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="json-format-container">
+            <div class="row" style="margin-top: 10px; ">
+                <div>
+                    <div class="col-md-4">
+                        <span>RGB颜色值转换成十六进制颜色码：</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 10px; margin-left: 0px; margin-right: 0px;">
+
+                <div class="panel panel-default" id="aa">
+                    <div class="panel-body">
+                        <div class="col-md-1">
+                            <input class="form-control rgb-val" placeholder="R" type="text" maxlength="3">
+                        </div>
+                        <div class="col-md-1">
+                            <input class="form-control rgb-val" placeholder="G" type="text" maxlength="3">
+                        </div>
+                        <div class="col-md-1">
+                            <input class="form-control rgb-val" placeholder="B" type="text" maxlength="3">
+                        </div>
+                        <div class="col-md-1">
+                            <button type="button" onclick="rgbToHex()" class="btn btn-success">转换</button>
+                        </div>
+                        <div class="col-md-2">
+                            <span class="form-control" style="font-size: 16px;">#afafaf</span>
+                        </div>
+                        <div class="col-md-2">
+                            <span class="form-control" id="color-show-01" style="border: none; background-color: #00AA00"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 10px; ">
+                <div>
+                    <div class="col-md-4">
+                        <span>十六进制颜色码转换成RGB颜色值：</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 10px; margin-left: 0px; margin-right: 0px;">
+
+                <div class="panel panel-default" id="cc">
+                    <div class="panel-body">
+                        <div class="col-md-3">
+                            <input class="form-control" placeholder="color" type="text" >
+                        </div>
+                        <div class="col-md-1">
+                            <button type="button" onclick="hexToRGB()" class="btn btn-success">转换</button>
+                        </div>
+                        <div class="col-md-2">
+                            <span class="form-control" style="font-size: 16px;">#afafaf</span>
+                        </div>
+                        <div class="col-md-2">
+                            <span class="form-control" id="color-show-02" style="border: none;"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<!--<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>-->
+<script>
+
+    function rgbToHex(){
+
+    }
+
+    function hexToRGB(){
+        alert('hex to rgb');
+    }
+
+    function showRGB() {
+        var hexcode = "#";
+        for (x = 0; x < 3; x++) {
+            ;
+            var n = document.form1.r1e[x].value;
+            if (n == "")n = "0";
+            if (parseInt(n) != n)return alert("请输入数字！");
+            if (n > 255)return alert("数字在0-255之间！");
+            var c = "0123456789ABCDEF", b = "", a = n % 16;
+            b = c.substr(a, 1);
+            a = (n - a) / 16;
+            hexcode += c.substr(a, 1) + b
+        }
+        document.getElementById("color1").bgColor = a_mo2.innerHTML = hexcode
+    }
+    function showRGB2() {
+        ;
+        var a = document.form2.rgb2.value;
+        if (a.substr(0, 1) == "#")a = a.substring(1);
+        if (a.length != 6)return alert("请输入正确的十六进制颜色码！")
+        document.getElementById("color2").bgColor = "#" + a;
+        a = a.toLowerCase()
+        b = new Array();
+        for (x = 0; x < 3; x++) {
+            b[0] = a.substr(x * 2, 2)
+            b[3] = "0123456789abcdef";
+            b[1] = b[0].substr(0, 1)
+            b[2] = b[0].substr(1, 1)
+            b[20 + x] = b[3].indexOf(b[1]) * 16 + b[3].indexOf(b[2])
+        }
+        a_mo3.innerHTML = b[20] + "," + b[21] + "," + b[22];
+    }
+
+
+</script>
+</body>
+</html>
